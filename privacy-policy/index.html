@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Friction</title>
+    <meta name="description" content="Privacy Policy for Friction. Your privacy is fundamental, not an afterthought.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F7F8F4;
+            --surface: #FFFFFF;
+            --surface-elevated: #FCFCFA;
+            --surface-variant: #EEF1EA;
+            --border: #E2E6DD;
+            --text-primary: #111111;
+            --text-secondary: #5F635B;
+            --text-muted: #8E9389;
+            --accent: #7E9F6E;
+            --accent-soft: rgba(126, 159, 110, 0.16);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glow Background */
+        .ambient-glow {
+            position: fixed;
+            top: -20vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vw;
+            height: 60vh;
+            background: radial-gradient(circle, rgba(126, 159, 110, 0.20) 0%, rgba(247, 248, 244, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--accent-soft);
+            color: var(--accent);
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(143, 174, 126, 0.3);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .policy-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .section-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Staggered animation delays for cards */
+        .section-card:nth-child(1) { animation-delay: 0.1s; }
+        .section-card:nth-child(2) { animation-delay: 0.2s; }
+        .section-card:nth-child(3) { animation-delay: 0.3s; }
+        .section-card:nth-child(4) { animation-delay: 0.4s; }
+        .section-card:nth-child(5) { animation-delay: 0.5s; }
+        .section-card:nth-child(6) { animation-delay: 0.6s; }
+        .section-card:nth-child(7) { animation-delay: 0.7s; }
+        .section-card:nth-child(8) { animation-delay: 0.8s; }
+        .section-card:nth-child(9) { animation-delay: 0.9s; }
+
+        .section-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(143, 174, 126, 0.4);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(143, 174, 126, 0.05);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .icon-container {
+            width: 40px;
+            height: 40px;
+            background-color: var(--surface-variant);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .section-content {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-left: calc(40px + 1rem); /* Align with text, not icon */
+        }
+
+        .section-content ul {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+            list-style-type: none;
+        }
+
+        .section-content li {
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-content li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: -1rem;
+            font-weight: bold;
+        }
+
+        .tldr-box {
+            margin-top: 4rem;
+            background-color: var(--accent-soft);
+            border: 1px solid rgba(143, 174, 126, 0.2);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1s forwards;
+        }
+
+        .tldr-box p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.2s forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+            h1 {
+                font-size: 2.25rem;
+            }
+            .section-card {
+                padding: 1.5rem;
+            }
+            .section-content {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <div class="container">
+        <header>
+            <div class="hero-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>Friction Privacy Policy</span>
+            </div>
+            <h1>Your privacy is fundamental.</h1>
+            <p class="subtitle">It is the core of how Friction is built, not an afterthought.</p>
+        </header>
+
+        <div class="policy-sections">
+            
+            <!-- Section 1 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <h2>No data leaves your device</h2>
+                </div>
+                <div class="section-content">
+                    <p>Friction has no server, no backend, and no analytics SDK. All data — your protected app list, open history, intentions, and usage stats — lives exclusively in the app's private storage on your device. It is never uploaded, synced, or shared with anyone, including the developer.</p>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h2>What data Friction stores locally</h2>
+                </div>
+                <div class="section-content">
+                    <ul>
+                        <li>Protected app rules (package name, delay, throttle settings, hard-block hours).</li>
+                        <li>Open events: timestamp, app name, whether friction was shown, and any intention text you choose to log.</li>
+                        <li>Daily usage records: per-app open counts and session durations.</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">Intention text is encrypted at rest using Android Keystore (AES-256-GCM). Raw text is never written to disk.</p>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <h2>Accessibility & VPN services</h2>
+                </div>
+                <div class="section-content">
+                    <p>Friction uses the Android Accessibility Service to detect which app is in the foreground so it can show the pause screen at the right moment. It uses a local VPN to throttle network speed for selected apps. Neither service reads, intercepts, or stores your screen content, keystrokes, or network payload. The local VPN does not route traffic through any external server.</p>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h2>Permissions we request</h2>
+                </div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Usage Access</strong> — to detect the foreground app.</li>
+                        <li><strong>Accessibility</strong> — to receive app-open events reliably.</li>
+                        <li><strong>Draw over other apps</strong> — to show the pause overlay.</li>
+                        <li><strong>VPN</strong> — to apply per-app network throttling locally.</li>
+                        <li><strong>Notifications</strong> — to keep the monitoring service alive while Android requires it.</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">No permission is used for advertising, tracking, or any purpose beyond the features described in the app.</p>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <h2>Deleting your data</h2>
+                </div>
+                <div class="section-content">
+                    <p>You can delete all usage history at any time via Settings → Data & Privacy → Clear all usage data. Uninstalling the app removes every piece of data Friction has ever stored.</p>
+                </div>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h2>Third-party libraries</h2>
+                </div>
+                <div class="section-content">
+                    <p>Friction uses open-source Android libraries (Jetpack, Room, Hilt, Kotlin Coroutines, Material 3). None of these libraries transmit data off-device in this build. No advertising or analytics SDK is included.</p>
+                </div>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <h2>Children</h2>
+                </div>
+                <div class="section-content">
+                    <p>Friction does not knowingly collect information from users under the age of 13. Because all data stays on-device and nothing is transmitted, there is no information to collect.</p>
+                </div>
+            </div>
+
+            <!-- Section 8 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h2>Changes to this policy</h2>
+                </div>
+                <div class="section-content">
+                    <p>If this policy changes in a future version, the updated text will ship with the app update. Continued use after an update constitutes acceptance of any changes.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tldr-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <div>
+                <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">TL;DR</strong>
+                <p>Friction stores everything locally. It never phones home. You can delete everything at any time.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; Friction App. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
